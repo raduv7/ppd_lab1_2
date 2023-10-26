@@ -4,6 +4,6 @@
 
 #include "DynamicMemoryAllocation.h"
 
-vector<vector<int>> &DynamicMemoryAllocation::getMatrix() {
+vector<vector<int>> *DynamicMemoryAllocation::getMatrix() {
     return matrix;
 }

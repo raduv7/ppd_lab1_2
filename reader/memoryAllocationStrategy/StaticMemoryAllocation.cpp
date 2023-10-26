@@ -4,6 +4,8 @@
 
 #include "StaticMemoryAllocation.h"
 
-vector<vector<int>> &StaticMemoryAllocation::getMatrix() {
-    return this->matrix;
+void** StaticMemoryAllocation::getMatrix() {
+    int** test0 = new int(10, 23);
+
+    return reinterpret_cast<void **>(this->matrix0);
 }

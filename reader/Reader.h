@@ -6,22 +6,27 @@
 #define LAB1_2_READER_H
 
 #include <vector>
+#include "memoryAllocationStrategy/IMemoryAllocationStrategy.h"
 
 using namespace std;
 
 class Reader {
 private:
     int n, m, k;
-    vector<vector<int>> matrix, convolutionalMatrix;
+    vector<vector<int>> *matrix, *convolutionalMatrix;
+    IMemoryAllocationStrategy *strategy;
+
+    int insideOnY(int j);
+    void borderMatrix();
 
 public:
     Reader(int fileNumber, int strategyCode);
 
     int getN() const;
     int getM() const;
-    int**& getMatrix();
+    vector<vector<int>>* getMatrix();
     int getK() const;
-    int**& getConvolutionalMatrix();
+    vector<vector<int>>* getConvolutionalMatrix();
 };
 
 
