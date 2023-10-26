@@ -11,7 +11,7 @@ using namespace std;
 
 class IMemoryAllocationStrategy {
 public:
-    virtual vector<vector<int>>& getMatrix() = 0;
+    virtual vector<vector<int>> *getMatrix() = 0;
 };
 
 #endif //LAB1_2_IMEMORYALLOCATIONSTRATEGY_H

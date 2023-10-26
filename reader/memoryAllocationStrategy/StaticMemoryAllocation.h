@@ -10,13 +10,17 @@
 
 using namespace std;
 
-class StaticMemoryAllocation : IMemoryAllocationStrategy {
+class StaticMemoryAllocation : public IMemoryAllocationStrategy {
 private:
-    vector<vector<int>> matrix;
+    int matrix0[10][10];
+    int matrix1[1000][1000];
+    int matrix2[10][10000];
+    int matrix3[10000][10];
+//    vector<vector<int>> matrix;
 public:
     StaticMemoryAllocation(int lines, int cols) : matrix(lines, vector<int>(cols, 0)) {}
 
-    vector<vector<int>>& getMatrix() override;
+    int& getMatrix();
 };
 
 
