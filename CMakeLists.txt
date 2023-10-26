@@ -13,4 +13,9 @@ add_executable(lab1_2 main.cpp
         reader/memoryAllocationStrategy/StaticMemoryAllocation.h
         reader/memoryAllocationStrategy/IMemoryAllocationStrategy.h
         reader/memoryAllocationStrategy/DynamicMemoryAllocation.cpp
-        reader/memoryAllocationStrategy/DynamicMemoryAllocation.h convolutor/convolutionStrategy/sequential/SequentialConvolutor.cpp convolutor/convolutionStrategy/sequential/SequentialConvolutor.h convolutor/convolutionStrategy/parallelOnLines/ParallelOnLinesConvolutor.cpp convolutor/convolutionStrategy/parallelOnLines/ParallelOnLinesConvolutor.h convolutor/convolutionStrategy/parallelOnBlocks/ParallelOnBlocksConvolutor.cpp convolutor/convolutionStrategy/parallelOnBlocks/ParallelOnBlocksConvolutor.h convolutor/convolutionStrategy/parallelHash/ParallelHashConvolutor.cpp convolutor/convolutionStrategy/parallelHash/ParallelHashConvolutor.h)
+        reader/memoryAllocationStrategy/DynamicMemoryAllocation.h convolutor/convolutionStrategy/sequential/SequentialConvolutor.cpp convolutor/convolutionStrategy/sequential/SequentialConvolutor.h convolutor/convolutionStrategy/parallelOnLines/ParallelOnLinesConvolutor.cpp convolutor/convolutionStrategy/parallelOnLines/ParallelOnLinesConvolutor.h convolutor/convolutionStrategy/parallelOnBlocks/ParallelOnBlocksConvolutor.cpp convolutor/convolutionStrategy/parallelOnBlocks/ParallelOnBlocksConvolutor.h convolutor/convolutionStrategy/parallelHash/ParallelHashConvolutor.cpp convolutor/convolutionStrategy/parallelHash/ParallelHashConvolutor.h
+        reader/memoryAllocationStrategy/IMatrix.h
+        reader/memoryAllocationStrategy/StaticMatrix.cpp
+        reader/memoryAllocationStrategy/StaticMatrix.h
+        reader/memoryAllocationStrategy/DynamicMatrix.cpp
+        reader/memoryAllocationStrategy/DynamicMatrix.h)

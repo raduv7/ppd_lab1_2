@@ -16,11 +16,11 @@ private:
 
 protected:
     int n, m, k;
-    vector<vector<int>> *resultMatrix;
+    IMatrix &resultMatrix;
 
     void convoluteUnit(int i, int j, int di, int dj) {
-        this->resultMatrix->at(i).at(j) +=
-                this->reader->getMatrix()->at(i + di).at(j + dj) *
+        this->resultMatrix.at(i, j) +=
+                this->reader->getInputMatrix().at(i + di, j + dj) *
                 this->reader->getConvolutionalMatrix()->at(di).at(dj);
     }
 
@@ -33,15 +33,14 @@ protected:
     }
 
 public:
-    IConvolutionStrategy(Reader *reader) {
+    IConvolutionStrategy(Reader *reader) : resultMatrix(reader->getResultMatrix()) {
         this->reader = reader;
         this->n = reader->getN();
         this->m = reader->getM();
         this->k = reader->getK();
-        this->resultMatrix = new vector<vector<int>>(this->n, vector<int>(this->m, 0));
     }
 
-    virtual vector<vector<int>>* convolute() = 0;
+    virtual IMatrix& convolute() = 0;
 };
 
 

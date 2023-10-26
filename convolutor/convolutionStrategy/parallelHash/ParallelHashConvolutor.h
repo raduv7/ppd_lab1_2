@@ -19,11 +19,11 @@ public:
             this->threadsCnt = threadsCnt;
     };
 
-    vector<vector<int>>* convolute() override;
+    IMatrix& convolute() override;
 
     int hashMultiplicative(int value);
 
-    std::__1::unordered_map<int, int> populateHashMapMultiplicative();
+    unordered_map<int, int> populateHashMapMultiplicative();
 
     int hashBitwiseXor(int value);
 

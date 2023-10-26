@@ -4,7 +4,7 @@
 
 #include "SequentialConvolutor.h"
 
-vector<vector<int>> *SequentialConvolutor::convolute() {
+IMatrix& SequentialConvolutor::convolute() {
     for(int i=0; i<n; ++i) {
         for(int j=0; j<m; ++j) {
             convoluteElementInMatrix(i, j);

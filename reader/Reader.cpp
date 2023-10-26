@@ -7,6 +7,8 @@
 #include "Reader.h"
 #include "memoryAllocationStrategy/DynamicMemoryAllocation.h"
 #include "memoryAllocationStrategy/StaticMemoryAllocation.h"
+#include "memoryAllocationStrategy/DynamicMatrix.h"
+#include "memoryAllocationStrategy/StaticMatrix.h"
 
 using namespace std;
 
@@ -16,11 +18,15 @@ Reader::Reader(int fileNumber, int strategyCode) {
     fin >> this->n >> this->m >> this->k;
 
     if(strategyCode == 0) {
-        this->strategy = new DynamicMemoryAllocation(n + k - 1, m + k - 1);
+        this->inputMatrix = new DynamicMatrix(n + k - 1, m + k - 1);
+        this->resultMatrix = new DynamicMatrix(n + k - 1, m + k - 1);
     } else {
-        this->strategy = new StaticMemoryAllocation(n, m);
+        this->inputMatrix= new StaticMatrix(n + k - 1, m + k - 1);
+        this->resultMatrix= new StaticMatrix(n + k - 1, m + k - 1);
     }
-    this->matrix = this->strategy->getMatrix();
+
+
+    this->matrix = new vector<vector<int>>(n + k - 1, vector<int>(m + k - 1, 0));
 
     for(int i = 0; i < this->n; i++) {
         for(int j = 0; j < this->m; j++) {
@@ -37,6 +43,8 @@ Reader::Reader(int fileNumber, int strategyCode) {
             fin >> this->convolutionalMatrix->at(i).at(j);
         }
     }
+
+    copyToInputMatrix();
 }
 
 int Reader::insideOnY(int j) {
@@ -74,8 +82,12 @@ int Reader::getM() const {
     return this->m;
 }
 
-vector<vector<int>>* Reader::getMatrix() {
-    return this->matrix;
+IMatrix& Reader::getInputMatrix() {
+    return *this->inputMatrix;
+}
+
+IMatrix& Reader::getResultMatrix() {
+    return *this->resultMatrix;
 }
 
 int Reader::getK() const {
@@ -84,4 +96,12 @@ int Reader::getK() const {
 
 vector<vector<int>>* Reader::getConvolutionalMatrix() {
     return this->convolutionalMatrix;
+}
+
+void Reader::copyToInputMatrix() {
+    for(int i = 0; i < this->n + this->k - 1; i++) {
+        for(int j = 0; j < this->m + this->k - 1; j++) {
+            this->inputMatrix->at(i, j) = this->matrix->at(i).at(j);
+        }
+    }
 }

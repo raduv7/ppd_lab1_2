@@ -12,7 +12,7 @@ class SequentialConvolutor : public IConvolutionStrategy {
 public:
     explicit SequentialConvolutor(Reader *reader) : IConvolutionStrategy(reader) { };
 
-    vector<vector<int>>* convolute() override;
+    IMatrix& convolute() override;
 };
 
 

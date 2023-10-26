@@ -10,12 +10,12 @@
 
 class DynamicMemoryAllocation : public IMemoryAllocationStrategy {
 private:
-//    vector<vector<int>> *matrix;
-    int*[] matrix;
+    vector<vector<int>> *matrix;
+//    int*[] matrix;
 public:
     DynamicMemoryAllocation(int lines, int cols) {
 //        matrix = new vector(lines, vector<int>(cols, 0));
-        matrix = new int[lines][cols];
+//        matrix = new int[lines][cols];
     }
 
     vector<vector<int>>* getMatrix() override;

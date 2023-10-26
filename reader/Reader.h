@@ -7,6 +7,7 @@
 
 #include <vector>
 #include "memoryAllocationStrategy/IMemoryAllocationStrategy.h"
+#include "memoryAllocationStrategy/IMatrix.h"
 
 using namespace std;
 
@@ -14,17 +15,19 @@ class Reader {
 private:
     int n, m, k;
     vector<vector<int>> *matrix, *convolutionalMatrix;
-    IMemoryAllocationStrategy *strategy;
+    IMatrix *inputMatrix, *resultMatrix;
 
     int insideOnY(int j);
     void borderMatrix();
+    void copyToInputMatrix();
 
 public:
     Reader(int fileNumber, int strategyCode);
 
     int getN() const;
     int getM() const;
-    vector<vector<int>>* getMatrix();
+    IMatrix& getInputMatrix();
+    IMatrix& getResultMatrix();
     int getK() const;
     vector<vector<int>>* getConvolutionalMatrix();
 };

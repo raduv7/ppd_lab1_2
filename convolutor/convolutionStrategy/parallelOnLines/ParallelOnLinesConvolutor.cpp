@@ -7,7 +7,7 @@
 
 using namespace std;
 
-vector<vector<int>>* ParallelOnLinesConvolutor::convolute() {
+IMatrix& ParallelOnLinesConvolutor::convolute() {
     vector<thread> threads;
 
     for (int i = 0; i < threadsCnt; ++i) {

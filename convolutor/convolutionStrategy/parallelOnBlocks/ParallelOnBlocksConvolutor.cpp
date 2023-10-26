@@ -5,7 +5,7 @@
 #include <thread>
 #include "ParallelOnBlocksConvolutor.h"
 
-vector<vector<int>>* ParallelOnBlocksConvolutor::convolute() {
+IMatrix& ParallelOnBlocksConvolutor::convolute() {
     vector<thread> threads;
 
     for (int i = 0; i < threadsCnt; ++i) {

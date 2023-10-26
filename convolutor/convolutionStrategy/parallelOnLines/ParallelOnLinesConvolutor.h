@@ -16,7 +16,7 @@ public:
         this->threadsCnt = threadsCnt;
     };
 
-    vector<vector<int>>* convolute() override;
+    IMatrix& convolute() override;
 };
 
 

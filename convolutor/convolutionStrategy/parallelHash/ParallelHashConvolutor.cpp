@@ -8,7 +8,7 @@
 #include <cmath>
 #include <algorithm>
 
-vector<vector<int>>* ParallelHashConvolutor::convolute() {
+IMatrix& ParallelHashConvolutor::convolute() {
     vector<thread> threads;
     unordered_map<int, int> hashMap = populateHashMap();
 
